@@ -41,7 +41,7 @@ function Login() {
       {/* Sección derecha con el formulario */}
       <div className="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 bg-gray-900">
         <div className="w-full py-6 z-20">
-          <h1 className="my-6 text-4xl font-bold text-white">Sign In</h1>
+          <h1 className="my-6 text-4xl font-bold text-white">Logearte</h1>
 
           <p className="text-gray-400">or use your email account</p>
 
