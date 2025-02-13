@@ -27,13 +27,13 @@ const NewsCarousel = () => {
         >
           {[
             { title: "Noticia 1", description: "Descripción corta de la noticia 1.", image: "/news.jpg" },
-            { title: "Noticia 2", description: "Resumen de la noticia 2 para captar la atención.", image: "/news.jpg" },
-            { title: "Noticia 3", description: "Una pequeña descripción sobre la noticia 3.", image: "/news.jpg" },
-            { title: "Noticia 4", description: "Breve descripción de la noticia 4.", image: "/news.jpg" },
-            { title: "Noticia 5", description: "Resumen de la noticia 5 para mantener la consistencia.", image: "/news.jpg" }
+            { title: "Noticia 2", description: "Descripción corta de la noticia 2.", image: "/news.jpg" },
+            { title: "Noticia 3", description: "Descripción corta de la noticia 3.", image: "/news.jpg" },
+            { title: "Noticia 4", description: "Descripción corta de la noticia 4.", image: "/news.jpg" },
+            { title: "Noticia 5", description: "Descripción corta de la noticia 5.", image: "/news.jpg" }
           ].map((news, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+              <div className="bg-white rounded-t-3xl overflow-hidden shadow-lg">
                 <img 
                   src={news.image} 
                   alt={news.title} 

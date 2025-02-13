@@ -3,7 +3,7 @@ const About = () => {
     <div
       className="flex justify-center items-center py-20 bg-rose-800"
     >
-      <div className="relative bg-white rounded-lg shadow-xl max-w-7xl flex flex-col md:flex-row items-center overflow-hidden">
+      <div className="relative bg-white shadow-xl max-w-7xl flex flex-col md:flex-row items-center overflow-hidden">
         {/* Contenedor del texto */}
         <div className="w-full md:w-1/2 p-8 md:p-10 text-center md:text-left">
           <h2 className="text-4xl font-bold mb-4 text-rose-800 font-merriweather">¿Quiénes somos?</h2>
@@ -14,7 +14,7 @@ const About = () => {
           </p>
           <a
             href="/mas-informacion"
-            className="bg-rose-800 hover:bg-rose-900 text-white font-bold py-3 px-4 rounded transition font-merriweather"
+            className="bg-rose-800 hover:bg-rose-900 text-white font-bold py-3 px-4 transition font-merriweather"
           >
             Más Información
           </a>
