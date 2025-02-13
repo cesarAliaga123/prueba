@@ -40,13 +40,15 @@ function Login() {
         }}
       >
         <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
+        
       </div>
+      
 
       {/* Sección derecha con el formulario */}
       <div className="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 bg-gray-900">
         <div className="w-full py-6 z-20">
           <h1 className="my-6 text-4xl font-bold text-white">Logearte</h1>
-
+          <p className="text-gray-400">or use your email account</p>
           {error && <p className="text-red-500">{error}</p>}
 
           {/* Formulario */}
@@ -76,7 +78,29 @@ function Login() {
                 className="block w-full p-4 text-lg rounded-sm bg-black border border-gray-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
               />
             </div>
-
+             {/* Recordar Contraseña y Olvidar Contraseña */}
+             <div className="flex justify-between text-gray-400 py-2 text-sm">
+              <label className="flex items-center cursor-pointer">
+                <input type="checkbox" className="sr-only peer" />
+                <div className="w-5 h-5 border-2 border-gray-400 rounded-md flex items-center justify-center peer-checked:bg-indigo-500 peer-checked:border-indigo-500">
+                  <svg
+                    className="w-4 h-4 text-white hidden peer-checked:block"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </div>
+                <span className="ml-2">Recuérdame</span>
+              </label>
+              <Link to="/forgot-password" className="hover:text-gray-200">
+                Olvidaste tu contraseña?
+              </Link>
+            </div>
             {/* Botón de Enviar */}
             <div className="px-4 pb-2 pt-4">
               <button
@@ -85,6 +109,18 @@ function Login() {
               >
                 Sign In
               </button>
+            </div>
+             {/* Redes Sociales */}
+             <div className="p-4 text-center right-0 left-0 flex justify-center space-x-4 mt-4">
+              <span className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white cursor-pointer">
+                f
+              </span>
+              <span className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white cursor-pointer">
+                G+
+              </span>
+              <span className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white cursor-pointer">
+                in
+              </span>
             </div>
           </form>
         </div>
