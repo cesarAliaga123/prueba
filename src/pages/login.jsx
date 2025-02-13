@@ -33,7 +33,7 @@ function Login() {
             Keep it special
           </h1>
           <p className="text-3xl my-4">
-            Capture your personal memory in a unique way, anywhere.
+            Capture your personal memori in a unique way, anywhere.
           </p>
         </div>
       </div>
