@@ -24,26 +24,21 @@ function Login() {
         className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80)",
+            "url(./spain.jpg)",
         }}
       >
         <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
         <div className="w-full px-24 z-10">
-          <h1 className="text-5xl font-bold text-left tracking-wide">
-            Keep it special
+          <h1 className="text-5xl font-bold tracking-wide font-merriweather text-right">
+            Cámara Oficial Española De Comercio E Industria en Bolivia
           </h1>
-          <p className="text-3xl my-4">
-            Capture your personal memori in a unique way, anywhere.
-          </p>
         </div>
       </div>
 
       {/* Sección derecha con el formulario */}
-      <div className="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 bg-gray-900">
+      <div className="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 bg-rose-800">
         <div className="w-full py-6 z-20">
-          <h1 className="my-6 text-4xl font-bold text-white">Sign In</h1>
-
-          <p className="text-gray-400">or use your email account</p>
+          <h1 className="my-6 text-4xl font-bold text-white font-merriweather">Iniciar Sesión</h1>
 
           {/* Formulario */}
           <form
@@ -59,7 +54,7 @@ function Login() {
                 onChange={handleChange}
                 placeholder="Email"
                 required
-                className="block w-full p-4 text-lg rounded-sm bg-black border border-gray-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                className="block w-full p-4 text-lg rounded-br-xl rounded-tl-xl bg-white border border-rose-950 font-merriweather text-rose-950"
               />
             </div>
 
@@ -72,17 +67,17 @@ function Login() {
                 onChange={handleChange}
                 placeholder="Password"
                 required
-                className="block w-full p-4 text-lg rounded-sm bg-black border border-gray-600 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                className="llock w-full p-4 text-lg rounded-br-xl rounded-tl-xl bg-white border border-rose-950 font-merriweather text-rose-950"
               />
             </div>
 
             {/* Recordar Contraseña y Olvidar Contraseña */}
-            <div className="flex justify-between text-gray-400 py-2 text-sm">
+            <div className="flex justify-between text-rose-400 py-2 text-sm">
               <label className="flex items-center cursor-pointer">
                 <input type="checkbox" className="sr-only peer" />
-                <div className="w-5 h-5 border-2 border-gray-400 rounded-md flex items-center justify-center peer-checked:bg-indigo-500 peer-checked:border-indigo-500">
+                <div className="w-5 h-5 border-2 border-rose-400 rounded-full flex items-center justify-center peer-checked:bg-orange-500 peer-checked:border-orange-500">
                   <svg
-                    className="w-4 h-4 text-white hidden peer-checked:block"
+                    className="w-4 h-4 text-rose-300 hidden peer-checked:block"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -93,10 +88,10 @@ function Login() {
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
                 </div>
-                <span className="ml-2">Recuérdame</span>
+                <span className="ml-2 hover:text-rose-200 font-merriweather">Recuérdame</span>
               </label>
-              <Link to="/forgot-password" className="hover:text-gray-200">
-                Olvidaste tu contraseña?
+              <Link to="/forgot-password" className="hover:text-rose-200 font-merriweather">
+                ¿Olvidaste tu contraseña?
               </Link>
             </div>
 
@@ -104,10 +99,15 @@ function Login() {
             <div className="px-4 pb-2 pt-4">
               <button
                 type="submit"
-                className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
+                className="uppercase block w-full p-4 text-lg rounded-br-xl rounded-tl-xl bg-white hover:bg-rose-300 focus:outline-none text-rose-900 font-merriweather"
               >
-                Sign In
+                Ingresar
               </button>
+              <div className="pt-3">
+              <Link to="/register" className="text-rose-400 hover:text-rose-200 font-merriweather">
+                ¿No tienes cuenta? Regístrate.
+              </Link>
+              </div>
             </div>
 
             {/* Redes Sociales */}
