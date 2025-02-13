@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./navbar";
 import Login from "./pages/login"; // Importa la página de login
 import Home from "./home"; // Importa la página principal
+import Register from "./pages/register";
 
 function App() {
   return (
     <>
-      <Navbar /> {/* Navbar se mostrará en todas las páginas */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
       </Routes>
     </>
   );
