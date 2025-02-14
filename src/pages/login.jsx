@@ -23,7 +23,7 @@ function Login() {
       const res = await axios.post("http://localhost:5000/login", formData);
       localStorage.setItem("token", res.data.token); // Guardar token en localStorage
       alert("Inicio de sesión exitoso");
-      navigate("/home"); // Redirigir al usuario a la página principal
+      navigate("/admin"); // Redirigir al usuario a la página principal
     } catch (error) {
       setError(error.response?.data?.message || "Error en el login");
     }
@@ -114,7 +114,7 @@ function Login() {
             {/* Botón de Enviar */}
             <div className="px-4 pb-2 pt-4">
               <button
-                type="submit"
+                type="submit" 
                 className="uppercase block w-full p-4 text-lg rounded-br-xl rounded-tl-xl bg-white hover:bg-rose-300 focus:outline-none text-rose-900 font-merriweather"
               >
                 Ingresar
