@@ -106,3 +106,116 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
 });
+
+
+// Obtener el contenido del Hero
+app.get("/hero", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM hero LIMIT 1");
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error("Error obteniendo el Hero:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Actualizar el contenido del Hero
+app.put("/hero/:id", async (req, res) => {
+  const { id } = req.params;
+  const { background_image, title, button_text, button_link } = req.body;
+
+  try {
+    await pool.query(
+      "UPDATE hero SET background_image = $1, title = $2, button_text = $3, button_link = $4 WHERE id = $5",
+      [background_image, title, button_text, button_link, id]
+    );
+
+    res.json({ success: true, message: "Hero actualizado correctamente" });
+  } catch (error) {
+    console.error("Error actualizando el Hero:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Obtener datos de la sección "¿Quiénes Somos?"
+app.get("/about", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM about LIMIT 1");
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error("Error obteniendo la información de About:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Actualizar datos de la sección "¿Quiénes Somos?"
+app.put("/about/:id", async (req, res) => {
+  const { id } = req.params;
+  const { title, description, button_text, button_link, image_url } = req.body;
+
+  try {
+    await pool.query(
+      "UPDATE about SET title = $1, description = $2, button_text = $3, button_link = $4, image_url = $5 WHERE id = $6",
+      [title, description, button_text, button_link, image_url, id]
+    );
+    res.json({ success: true, message: "Sección About actualizada correctamente" });
+  } catch (error) {
+    console.error("Error actualizando About:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+
+// Obtener todas las noticias
+app.get("/news", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM news ORDER BY id DESC");
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Error obteniendo noticias:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Agregar una nueva noticia
+app.post("/news", async (req, res) => {
+  const { title, description, image_url } = req.body;
+  try {
+    const result = await pool.query(
+      "INSERT INTO news (title, description, image_url) VALUES ($1, $2, $3) RETURNING *",
+      [title, description, image_url]
+    );
+    res.json({ success: true, news: result.rows[0] });
+  } catch (error) {
+    console.error("Error agregando noticia:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Actualizar una noticia
+app.put("/news/:id", async (req, res) => {
+  const { id } = req.params;
+  const { title, description, image_url } = req.body;
+  try {
+    await pool.query(
+      "UPDATE news SET title = $1, description = $2, image_url = $3 WHERE id = $4",
+      [title, description, image_url, id]
+    );
+    res.json({ success: true, message: "Noticia actualizada correctamente" });
+  } catch (error) {
+    console.error("Error actualizando noticia:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Eliminar una noticia
+app.delete("/news/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await pool.query("DELETE FROM news WHERE id = $1", [id]);
+    res.json({ success: true, message: "Noticia eliminada correctamente" });
+  } catch (error) {
+    console.error("Error eliminando noticia:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
