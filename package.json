@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "start": "cd backend && start /b node server.js && cd ../src && npm run dev",
+    "start": "cd backend && start /b node server.js && cd ../src && npm run dev",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -12,13 +12,17 @@
   },
   "dependencies": {
     "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "framer-motion": "^12.4.2",
+    "pg": "^8.13.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.1.5",
     "swiper": "^11.2.3"
-    
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
