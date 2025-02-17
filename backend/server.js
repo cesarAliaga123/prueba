@@ -219,3 +219,108 @@ app.delete("/news/:id", async (req, res) => {
     res.status(500).json({ success: false, message: "Error en el servidor" });
   }
 });
+
+
+
+
+
+
+
+// Obtener todas las cámaras de comercio
+app.get("/camaras", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM camaras ORDER BY id ASC");
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Error obteniendo cámaras de comercio:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Agregar una nueva cámara de comercio
+app.post("/camaras", async (req, res) => {
+  const { name, lat, lng, link } = req.body;
+  try {
+    const result = await pool.query(
+      "INSERT INTO camaras (name, lat, lng, link) VALUES ($1, $2, $3, $4) RETURNING *",
+      [name, lat, lng, link]
+    );
+    res.json({ success: true, camara: result.rows[0] });
+  } catch (error) {
+    console.error("Error agregando cámara:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Actualizar una cámara de comercio
+app.put("/camaras/:id", async (req, res) => {
+  const { id } = req.params;
+  const { name, lat, lng, link } = req.body;
+  try {
+    await pool.query(
+      "UPDATE camaras SET name = $1, lat = $2, lng = $3, link = $4 WHERE id = $5",
+      [name, lat, lng, link, id]
+    );
+    res.json({ success: true, message: "Cámara actualizada correctamente" });
+  } catch (error) {
+    console.error("Error actualizando cámara:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Eliminar una cámara de comercio
+app.delete("/camaras/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await pool.query("DELETE FROM camaras WHERE id = $1", [id]);
+    res.json({ success: true, message: "Cámara eliminada correctamente" });
+  } catch (error) {
+    console.error("Error eliminando cámara:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+
+
+
+
+
+
+
+// Obtener todos los socios
+app.get("/socios", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM socios ORDER BY id ASC");
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Error obteniendo socios:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Agregar un nuevo socio
+app.post("/socios", async (req, res) => {
+  const { title, description, image } = req.body;
+  try {
+    const result = await pool.query(
+      "INSERT INTO socios (title, description, image) VALUES ($1, $2, $3) RETURNING *",
+      [title, description, image]
+    );
+    res.json({ success: true, socio: result.rows[0] });
+  } catch (error) {
+    console.error("Error agregando socio:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
+
+// Eliminar un socio
+app.delete("/socios/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await pool.query("DELETE FROM socios WHERE id = $1", [id]);
+    res.json({ success: true, message: "Socio eliminado correctamente" });
+  } catch (error) {
+    console.error("Error eliminando socio:", error);
+    res.status(500).json({ success: false, message: "Error en el servidor" });
+  }
+});
