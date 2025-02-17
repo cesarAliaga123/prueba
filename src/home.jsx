@@ -3,7 +3,7 @@ import Hero from './hero';
 import About from './about';
 import About2 from './about2';
 import NewsCarousel from './carouselnoticias';
-import NewsCarousel2 from './carousel2';
+import NewsCarousel2 from './carouselSocios';
 import Footer from './footer';
 import Navbar from './navbar';
 import CarouselNoticias from './carouselnoticias';
